@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>task3</title>
+    </head>
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, minmax(100px, auto));
+        }
+
+        .container>div {
+            margin: 3px;
+            padding: 24px;
+        }
+
+        .child1,
+        .child5 {
+            grid-column: span 5;
+            background-color: darkslateblue;
+            color: white;
+            text-align: center;
+        }
+
+        .child2 {
+            grid-row: span 3;
+            background-color: chocolate;
+            color: white;
+            text-align: center;
+        }
+
+        .child3 {
+            grid-row: span 3;
+            grid-column: 2/5;
+            background-color: darkolivegreen;
+            color: white;
+            text-align: center;
+        }
+
+        .child4 {
+            grid-row: span 3;
+            grid-column: 5/5;
+            background-color: chocolate;
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="child1">Header</div>
+            <div class="child2">SideNav</div>
+            <div class="child3">MainContent</div>
+            <div class="child4">SideBar</div>
+            <div class="child5">Footer</div>
+        </div>
+    </body>
+
+</html>
