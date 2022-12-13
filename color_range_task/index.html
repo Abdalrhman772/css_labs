@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>colors</title>
+    </head>
+
+    <style>
+        label {
+            font-size: 40px;
+        }
+
+        input[type="range"] {
+            width: 90%;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .r {
+            color: red;
+        }
+
+        .g {
+            color: green;
+        }
+
+        .b {
+            color: blue;
+        }
+    </style>
+
+    <body>
+        <section style="margin: 10% auto; height: 500px; width: 500px;">
+            <div>
+                <div>
+                    <label class="r" for="r">R</label>
+                    <input type="range" id="r" min="0" max="255" value="0" step="1" oninput="colors()">
+                </div>
+                <div>
+                    <label class="g" for="g">G</label>
+                    <input type="range" id="g" min="0" max="255" value="0" step="1" oninput="colors()">
+                </div>
+                <div>
+                    <label class="b" for="b">B</label>
+                    <input type="range" id="b" min="0" max="255" value="0" step="1" oninput="colors()">
+                </div>
+                <p>color this text</p>
+            </div>
+        </section>
+        <script>
+            var txt = document.querySelector("p");
+            txt.style.fontSize = '50px';
+            function colors() {
+                var r = document.querySelector("#r").value;
+                var g = document.querySelector("#g").value;
+                var b = document.querySelector("#b").value;
+                txt.style.color = `rgb(${r}, ${g}, ${b})`;
+            }
+
+
+
+        </script>
+    </body>
+
+</html>

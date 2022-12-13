@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>video controls</title>
+    </head>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        video {
+            /* margin: 8% 15%; */
+            width: 950px;
+        }
+
+        #playback {
+            width: 800px;
+        }
+
+        #timing {
+            display: inline;
+        }
+
+        button {
+            height: 25px;
+            border: none;
+            border-radius: 3px;
+            font-size: 15px;
+            background-color: cornflowerblue;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+    <body>
+        <video id="vid" src="./video/frozen.mp4"></video>
+        <section class="custom-controls">
+            <input id="playback" type="range" min="0" max="100" value="0"></input>
+            <div id="timing">
+                <span class="playback-now">0:00</span> /
+                <span class="playback-length">0:00</span>
+            </div>
+            <button id="fscreen">fullscreen</button>
+            <br>
+            <button id="play">play</button>
+            <button id="stop">stop</button>
+            <button id="back10">
+                << </button>
+                    <button id="back5">
+                        < </button>
+                            <button id="fwd5"> > </button>
+                            <button id="fwd10"> >> </button>
+                            <input id="volume" type="range" min="0" max="100" value="75"></input>
+                            <button id="mute">mute</button>
+                            speed:<input id="speed" type="range" min=".1" max="2.5" value="1"></input>
+        </section>
+
+
+        <script>
+            let vid = document.querySelector("#vid");
+            let play = document.querySelector("#play");
+            let stop = document.querySelector("#stop");
+            let back10 = document.querySelector("#back10");
+            let back5 = document.querySelector("#back5");
+            let fwd5 = document.querySelector("#fwd5");
+            let fwd10 = document.querySelector("#fwd10");
+            let vol = document.querySelector("#volume");
+            let mute = document.querySelector("#mute");
+            let speed = document.querySelector("#speed");
+            let playback = document.querySelector("#playback");
+            let playbackNow = document.querySelector(".playback-now");
+            let playbackLength = document.querySelector(".playback-length");
+            let fscreen = document.querySelector("#fscreen");
+
+            //TODO: hereeeee 
+            function setDuration(timeInSec) {
+                let min = Math.floor(timeInSec / 60);
+                let sec = Math.floor(timeInSec - min * 60);
+                let vidTiming = `${min}:${sec}`;
+                return vidTiming;
+
+            }
+
+            //todo: hereee
+            setTimeout(() => {
+                let vidInSec = vid.duration;
+                playbackLength.innerText = setDuration(vidInSec);
+                playback.setAttribute("max", vidInSec);
+            }, 200);
+
+            playback.addEventListener("change", () => {
+                vid.currentTime = playback.value;
+                playbackNow.innerText = setDuration(vid.currentTime)
+            })
+
+            vid.addEventListener("timeupdate", () => {
+                playbackNow.innerText = setDuration(vid.currentTime)
+                playback.value = vid.currentTime
+            })
+            //*********************************
+            play.addEventListener("click", () => {
+                vid.play();
+            })
+
+            stop.addEventListener("click", () => {
+                vid.pause();
+            })
+
+            mute.addEventListener("click", () => {
+                vid.muted = !vid.muted;
+            })
+
+            speed.addEventListener("change", () => {
+                vid.playbackRate = speed.value;
+            })
+
+            vol.addEventListener("change", () => {
+                vid.volume = vol.value / 100;
+            })
+
+            fwd10.addEventListener("click", () => {
+                vid.currentTime = vid.currentTime + 10
+            })
+            back10.addEventListener("click", () => {
+                vid.currentTime = vid.currentTime - 10
+            })
+            back5.addEventListener("click", () => {
+                vid.currentTime = vid.currentTime - 5
+            })
+            fwd5.addEventListener("click", () => {
+                vid.currentTime = vid.currentTime + 5
+            })
+
+            fscreen.addEventListener("click", () => {
+                vid.requestFullscreen();
+            })
+
+        </script>
+    </body>
+
+</html>

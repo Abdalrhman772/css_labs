@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Triangle</title>
+    </head>
+    <script>
+        window.MathJax = {
+            MathML: { extensions: ["mml3.js", "content-mathml.js"] },
+        };
+    </script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
+    <style>
+        * {
+            margin: 15px;
+        }
+
+        .equation {
+            color: red;
+            font-size: 50px
+        }
+
+        p {
+            font-size: 40px;
+        }
+    </style>
+
+    <body>
+        <main>
+            <section class="triangle">
+
+                <svg width="400" height="400">
+                    <polygon points="250,10 100,300, 250,300" style="fill: red;">
+                    </polygon>
+                </svg>
+            </section>
+            <p>according to pythagoras theorem</p>
+            <section class="equation">
+                <math>
+                    <mi>c</mi>
+                    <mo>=</mo>
+                    <msqrt>
+                        <msup>
+                            <mi>a</mi>
+                            <mn>2</mn>
+                        </msup>
+                        <mo>+</mo>
+                        <msup>
+                            <mi>b</mi>
+                            <mn>2</mn>
+                        </msup>
+                    </msqrt>
+                </math>
+            </section>
+        </main>
+    </body>
+
+</html>

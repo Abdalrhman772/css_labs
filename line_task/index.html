@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>line</title>
+    </head>
+    <style>
+        svg {
+            margin: 50px;
+            border: 5px solid lightskyblue;
+        }
+
+        line {
+            stroke: orange;
+            stroke-width: 5;
+        }
+
+        /* canvas {
+            margin: 50px;
+            border: 5px solid lightskyblue;
+        } */
+    </style>
+
+    <body>
+
+        <svg width="750" height="750">
+            <line x1="0" y1="0" x2="0" y2="0" id="l"></line>
+        </svg>
+
+
+        <script>
+
+            let line = document.querySelector("#l");
+
+            let incrementor = 0;
+            let movingLine = setInterval(() => {
+                incrementor += 50;
+                line.setAttribute("x2", incrementor);
+                line.setAttribute("y2", incrementor);
+
+
+                if (incrementor > 750) {
+                    clearInterval(movingLine)
+                    line.setAttribute("x2", 750);
+                    line.setAttribute("y2", 750);
+                    alert("Animation ended!");
+                }
+            }, 200);س
+        </script>
+    </body>
+
+</html>
