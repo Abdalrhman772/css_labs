@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>input task</title>
+    </head>
+    <style>
+        /* input {
+            border: 2px solid red;
+        }
+
+        input:valid {
+            border: 2px solid green;
+        }
+
+        div:valid {
+            display: none;
+        } */
+
+
+        #username:valid+div {
+            display: none;
+        }
+
+        #email:valid+div {
+            display: none;
+        }
+
+        #username:valid {
+            border: 2px solid green;
+        }
+
+        #email:valid {
+            border: 2px solid green;
+        }
+
+        #username:placeholder-shown+div {
+            display: block;
+
+        }
+
+        #username:placeholder-shown {
+            border: 2px solid red;
+        }
+
+        #email:placeholder-shown+div {
+            display: block;
+
+        }
+
+        #email:placeholder-shown {
+            border: 2px solid red;
+        }
+
+        #username:invalid+div {
+            display: block;
+        }
+
+        #email:invalid+div {
+            display: block;
+        }
+    </style>
+
+    <body>
+        <form action="">
+            <div class="username">
+                <input pattern="[A-Za-z]*" placeholder="enter username" type="text" name="" id="username">
+                <div>validate rules</div>
+            </div>
+            <br>
+            <div class="email">
+                <input placeholder="enter email" type="email" name="" id="email">
+                <div>validate rules</div>
+            </div>
+
+            <button type="submit">submit</button>
+        </form>
+        <script>
+            let inp = document.querySelector("input")
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>button task</title>
+    </head>
+    <style>
+        button {
+            color: white;
+            background-color: darkcyan;
+            border: none;
+            margin: 20% 30%;
+            border-radius: 36px;
+            padding: 18px 36px;
+            font-size: 20px;
+            transition: 20s all;
+        }
+
+        button:hover {
+            animation-name: myBtn;
+            animation-duration: 8s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease;
+            animation-direction: alternate;
+        }
+
+        @keyframes myBtn {
+            0% {
+                box-shadow: 0px 2px 26px darkblue;
+                background-color: orange;
+                color: darkslateblue;
+
+
+            }
+
+            15% {
+                box-shadow: 0px 2px 26px purple;
+                background-color: orange;
+                color: darkblue;
+            }
+
+            30% {
+                box-shadow: 0px 2px 26px darkslateblue;
+                background-color: darkorange;
+                color: black;
+
+
+
+            }
+
+            45% {
+                box-shadow: 0px 2px 26px blue;
+                background-color: darkorange;
+                color: black;
+            }
+
+            60% {
+                box-shadow: 0px 2px 26px lightseagreen;
+                background-color: red;
+                color: white;
+            }
+
+            75% {
+                box-shadow: 0px 2px 26px green;
+                background-color: red;
+                color: white;
+            }
+
+            90% {
+                box-shadow: 0px 2px 26px yellowgreen;
+                background-color: midnightblue;
+                color: orange;
+            }
+
+            100% {
+                box-shadow: 0px 2px 26px orange;
+                background-color: midnightblue;
+                color: orange;
+
+
+            }
+        }
+    </style>
+
+    <body>
+        <button>animated colorized button</button>
+    </body>
+
+</html>
