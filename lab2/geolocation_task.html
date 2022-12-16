@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>geolocation task</title>
+    </head>
+
+    <body>
+        <button onclick="getLocation()">get location</button>
+        <br>
+        <hr>
+        <br>
+        <input type="text" id="inp1">
+        <input type="text" id="inp2">
+        <input type="button" value="submit" id="submitBtn">
+        <br>
+        <hr>
+        <br>
+        <button id="sum">sum</button>
+        <button id="bg">Bg change</button>
+        <script>
+            function getLocation() {
+                navigator.geolocation.getCurrentPosition(getPosition, showError, options)
+            }
+            function getPosition(position) {
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+                location.assign("http://maps.google.com/maps?q=" + lat + ",+" + long)
+            }
+            function showError(e) {
+                switch (x.code) {
+                    case 0:
+                        console.log(e.message);
+                        break;
+                    case 1:
+                        console.log(e.message);
+                        break;
+                    case 2:
+                        console.log(e.message);
+                        break;
+                    case 3:
+                        console.log(e.message, e.code);
+                        break;
+                }
+
+            }
+            let options = {
+                timeout: 0
+            }
+
+            let btn = document.getElementById("submitBtn");
+            btn.addEventListener("click", function () {
+                var name = document.getElementById("inp1").value;
+                var address = document.getElementById("inp2").value;
+                localStorage.setItem("name", name);
+                sessionStorage.setItem("addr", address);
+                console.log(localStorage);
+                console.log(sessionStorage);
+                console.log(localStorage.getItem("name"));
+
+            });
+
+            let worker = new Worker("web_worker.js");
+            let sum = document.getElementById("sum");
+            let bg = document.getElementById("bg");
+            sum.onclick = function () {
+                worker.postMessage("");
+            }
+
+            worker.onmessage = function (message) {
+                console.log(message);
+                alert(message.data)
+            }
+
+
+
+            bg.onclick = function () {
+                if (document.body.style.backgroundColor !== "green") {
+                    document.body.style.backgroundColor = "green"
+                }
+                else {
+                    document.body.style.backgroundColor = "orange"
+                }
+
+            }
+
+        </script>
+    </body>
+
+</html>
